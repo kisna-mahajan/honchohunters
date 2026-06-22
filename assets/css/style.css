@@ -882,8 +882,9 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 760px) {
   .hero-stats { padding: 26px 22px; margin-top: -70px; border-radius: 12px; }
-  .marquee__track span { font-size: 0.8rem; padding: 0 20px; }
+  .marquee__track span { font-size: 0.8rem; padding: 0 20px; white-space: normal; text-align: center; }
   .grid--cols-3 { grid-template-columns: repeat(2, 1fr); }
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; gap: 32px !important; }
   .nav__links {
     position: absolute;
     top: 100%;
