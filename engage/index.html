@@ -65,7 +65,7 @@
           <h2 class="section-title">Tell Us About Your Leadership Journey</h2>
         </div>
 
-        <form id="engage-form" action="https://formsubmit.co/leadership@honchohunters.com" method="POST">
+        <form id="engage-form" action="https://formsubmit.co/leadership@honchohunters.com" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New Engagement Submission — Honcho Hunters" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="https://honchohunters.com/engage/?submitted=true" />
@@ -121,6 +121,11 @@
               <label for="experience">Years of Experience *</label>
               <input type="text" id="experience" name="experience" required />
             </div>
+          </div>
+
+          <div class="form-row">
+            <label for="resume">Upload Resume (PDF, optional, max 5MB)</label>
+            <input type="file" id="resume" name="attachment" accept="application/pdf" />
           </div>
 
           <div class="form-row">
