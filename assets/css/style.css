@@ -144,26 +144,25 @@ img { max-width: 100%; display: block; }
 }
 
 .nav__logo {
-  display: flex;
-  flex-direction: column;
-  color: var(--text-light);
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
 }
 
-.nav__logo-line {
-  font-family: var(--serif);
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.nav__logo-img {
+  display: block;
+  height: 34px;
+  width: auto;
 }
 
-.nav__logo-line span { color: var(--accent-light); }
+.footer__brand .nav__logo {
+  padding: 8px 16px;
+}
 
-.nav__logo small {
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted-light);
-  margin-top: 2px;
+.footer__brand .nav__logo-img {
+  height: 38px;
 }
 
 .nav__links {
