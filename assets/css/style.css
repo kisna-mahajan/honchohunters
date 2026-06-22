@@ -547,6 +547,8 @@ img { max-width: 100%; display: block; }
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 12px;
@@ -678,7 +680,7 @@ img { max-width: 100%; display: block; }
 .section--dark .card__list li { color: var(--text-muted-light); }
 
 .card__focus {
-  margin-top: 18px;
+  margin-top: auto;
   padding-top: 14px;
   border-top: 1px solid var(--border-light);
   font-size: 0.85rem;
