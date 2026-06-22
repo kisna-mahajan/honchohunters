@@ -471,10 +471,21 @@ img { max-width: 100%; display: block; }
 
 .divider svg { width: 100%; height: 100%; display: block; }
 
+.divider--light-to-dark { background: var(--bg-light); }
 .divider--light-to-dark svg path { fill: var(--bg-dark); }
+
+.divider--dark-to-light { background: var(--bg-dark); }
 .divider--dark-to-light svg path { fill: var(--bg-light); }
+
+.divider--light-to-card { background: var(--bg-light); }
 .divider--light-to-card svg path { fill: var(--bg-card); }
+
+.divider--card-to-light { background: var(--bg-card); }
 .divider--card-to-light svg path { fill: var(--bg-light); }
+
+.divider--dark-to-dark { background: var(--bg-dark); }
+.divider--dark-to-dark svg path { fill: var(--bg-dark); }
+
 .divider--flip { transform: scaleX(-1); }
 
 /* ===== Generic section ===== */
