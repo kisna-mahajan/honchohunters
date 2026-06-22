@@ -378,7 +378,7 @@ img { max-width: 100%; display: block; }
 .hero--page .hero__title,
 .hero--page .hero__subtitle { margin-left: 0; }
 
-.hero--home { padding-bottom: 130px; }
+.hero--home { padding-bottom: 260px; }
 
 .hero__orb {
   position: absolute;
@@ -427,9 +427,8 @@ img { max-width: 100%; display: block; }
 
 /* ===== Verticals strip (home page) ===== */
 .marquee {
-  background: linear-gradient(180deg, rgba(7, 8, 14, 0) 0%, rgba(7, 8, 14, 0.55) 50%, var(--bg-darker) 100%);
-  padding: 130px 24px 28px;
-  margin-top: -130px;
+  padding: 24px 24px 0;
+  margin-top: -200px;
   position: relative;
   z-index: 1;
 }
@@ -450,12 +449,15 @@ img { max-width: 100%; display: block; }
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--text-muted-light);
+  color: var(--text-light);
   white-space: nowrap;
   padding: 11px 22px;
-  border: 1px solid var(--border-dark);
+  border: 1px solid rgba(245, 243, 238, 0.28);
   border-radius: 999px;
-  background: rgba(245, 243, 238, 0.03);
+  background: rgba(13, 15, 26, 0.42);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 6px 18px rgba(7, 8, 14, 0.25);
   transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
 }
 .marquee__track span::before {
@@ -517,6 +519,13 @@ img { max-width: 100%; display: block; }
 .divider--card-to-dark svg path { fill: var(--bg-dark); }
 
 .divider--flip { transform: scaleX(-1); }
+
+.divider--home-curve {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+.divider--home-curve svg path { fill: var(--bg-light); }
 
 /* ===== Generic section ===== */
 .section { padding: 80px 0; }
@@ -1046,7 +1055,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 760px) {
   .hero-stats { padding: 26px 22px; margin-top: -70px; border-radius: 12px; }
-  .marquee { padding: 110px 18px 22px; margin-top: -110px; }
+  .marquee { padding: 18px 18px 0; margin-top: -160px; }
   .marquee__track { gap: 10px 10px; }
   .marquee__track span { font-size: 0.72rem; padding: 9px 16px; }
   .grid--cols-3 { grid-template-columns: repeat(2, 1fr); }
