@@ -182,10 +182,22 @@ img { max-width: 100%; display: block; }
 .nav__links a.is-active { color: var(--text-light); }
 
 .nav__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: var(--accent);
   color: #fff !important;
-  padding: 10px 20px;
+  padding: 8px 20px;
   border-radius: 4px;
+  line-height: 1.2;
+}
+
+.nav__cta-sub {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
 }
 
 .nav__cta:hover { background: var(--accent-light); }
