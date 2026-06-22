@@ -28,4 +28,25 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // Scroll reveal for cards and tiles
+  var revealEls = document.querySelectorAll('.card, .practice-card, .step, .form-card');
+
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    revealEls.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i % 6) * 0.08 + 's';
+    });
+
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
 });
