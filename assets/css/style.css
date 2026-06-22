@@ -291,6 +291,24 @@ img { max-width: 100%; display: block; }
   z-index: 0;
 }
 
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 520px at 88% -10%, var(--accent-glow), transparent 60%),
+    linear-gradient(165deg, rgba(13, 15, 26, 0.88), rgba(13, 15, 26, 0.74) 55%, rgba(7, 8, 14, 0.92));
+}
+
 .hero .container { position: relative; z-index: 1; }
 
 .hero__eyebrow {
