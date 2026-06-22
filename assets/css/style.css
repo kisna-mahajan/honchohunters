@@ -483,7 +483,7 @@ img { max-width: 100%; display: block; }
 .divider--card-to-light { background: var(--bg-card); }
 .divider--card-to-light svg path { fill: var(--bg-light); }
 
-.divider--dark-to-dark { background: var(--bg-dark); }
+.divider--dark-to-dark { background: var(--bg-darker); }
 .divider--dark-to-dark svg path { fill: var(--bg-dark); }
 
 .divider--flip { transform: scaleX(-1); }
