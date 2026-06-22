@@ -59,16 +59,17 @@
   <!-- FORM -->
   <section class="section section--light">
     <div class="container" style="max-width:760px;">
-      <div class="form-card">
+      <div class="form-card" id="engage-form-card">
         <div class="section__header">
           <p class="section-label">Share Your Profile</p>
           <h2 class="section-title">Tell Us About Your Leadership Journey</h2>
         </div>
 
-        <form id="engage-form" novalidate>
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value="New Engagement Submission — Honcho Hunters" />
-          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+        <form id="engage-form" action="https://formsubmit.co/leadership@honchohunters.com" method="POST">
+          <input type="hidden" name="_subject" value="New Engagement Submission — Honcho Hunters" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://honchohunters.com/engage/?submitted=true" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
           <div class="form-grid-2">
             <div class="form-row">
@@ -128,11 +129,15 @@
           </div>
 
           <button type="submit" class="btn btn--primary" style="margin-top:8px;width:100%;">Submit My Profile →</button>
-          <p class="form-status" aria-live="polite"></p>
         </form>
       </div>
 
-      <div class="org-note">
+      <div class="form-card is-success" id="engage-form-thanks" style="display:none;text-align:center;">
+        <p class="card__title" style="font-size:1.2rem;margin-bottom:8px;">Thank You</p>
+        <p class="card__body">Your details have been received — we will reach out for relevant opportunities.</p>
+      </div>
+
+      <div class="org-note" id="engage-org-note">
         <p class="card__title" style="font-size:1rem;margin-bottom:8px;">Representing an Organisation?</p>
         <p class="card__body">
           This form is reserved for senior professionals. If you are an organisation with a leadership mandate to share, please email us directly at
@@ -180,6 +185,48 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+
+      if (params.get('submitted') === 'true') {
+        var card = document.getElementById('engage-form-card');
+        var thanks = document.getElementById('engage-form-thanks');
+        var note = document.getElementById('engage-org-note');
+        if (card) card.style.display = 'none';
+        if (note) note.style.display = 'none';
+        if (thanks) thanks.style.display = 'block';
+        return;
+      }
+
+      var vertical = params.get('vertical');
+      if (!vertical) return;
+
+      var map = {
+        'defence': 'Defence & Strategic Industries',
+        'gcc': 'Global Capability Centres (GCC)',
+        'healthcare': 'Healthcare & Hospitals',
+        'consumer-electronics': 'Consumer Electronics & Technology',
+        'steel': 'Steel Industry',
+        'cement': 'Cement Industry'
+      };
+      var label = map[vertical];
+      if (!label) return;
+
+      var sel = document.getElementById('vertical');
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === label) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      var subj = document.querySelector('input[name="_subject"]');
+      if (subj) subj.value = 'New Engagement Submission — Honcho Hunters (' + label + ')';
+    })();
+  </script>
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
