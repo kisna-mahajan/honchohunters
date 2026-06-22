@@ -486,6 +486,9 @@ img { max-width: 100%; display: block; }
 .divider--dark-to-dark { background: var(--bg-darker); }
 .divider--dark-to-dark svg path { fill: var(--bg-dark); }
 
+.divider--card-to-dark { background: var(--bg-card); }
+.divider--card-to-dark svg path { fill: var(--bg-dark); }
+
 .divider--flip { transform: scaleX(-1); }
 
 /* ===== Generic section ===== */
