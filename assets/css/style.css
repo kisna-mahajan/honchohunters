@@ -661,7 +661,7 @@ img { max-width: 100%; display: block; }
 }
 .cta-banner .section-title,
 .cta-banner .section-label { color: var(--text-light); }
-.cta-banner .section-label { color: var(--accent-light); }
+.cta-banner .section-label { color: var(--accent-light); justify-content: center; }
 .cta-banner .section-body { margin: 0 auto 32px; color: var(--text-muted-light); }
 
 /* ===== Footer ===== */

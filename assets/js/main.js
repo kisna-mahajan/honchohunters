@@ -15,16 +15,43 @@ document.addEventListener('DOMContentLoaded', function () {
   var dropdownToggle = document.querySelector('.nav__dropdown-toggle');
 
   if (dropdown && dropdownToggle) {
+    var closeTimer = null;
+
+    var openDropdown = function () {
+      clearTimeout(closeTimer);
+      dropdown.classList.add('is-open');
+      dropdownToggle.setAttribute('aria-expanded', 'true');
+    };
+
+    var closeDropdown = function () {
+      dropdown.classList.remove('is-open');
+      dropdownToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    // Keep the menu available for a couple of seconds after the mouse
+    // leaves, so moving the pointer toward the menu doesn't get raced.
+    var scheduleClose = function () {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(closeDropdown, 2000);
+    };
+
+    dropdown.addEventListener('mouseenter', openDropdown);
+    dropdown.addEventListener('mouseleave', scheduleClose);
+
     dropdownToggle.addEventListener('click', function (e) {
       e.stopPropagation();
-      var isOpen = dropdown.classList.toggle('is-open');
-      dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      clearTimeout(closeTimer);
+      if (dropdown.classList.contains('is-open')) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
     });
 
     document.addEventListener('click', function (e) {
       if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('is-open');
-        dropdownToggle.setAttribute('aria-expanded', 'false');
+        clearTimeout(closeTimer);
+        closeDropdown();
       }
     });
   }
