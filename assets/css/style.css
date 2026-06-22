@@ -122,6 +122,16 @@ img { max-width: 100%; display: block; }
 .btn--white { background: var(--text-light); color: var(--bg-dark); }
 .btn--white:hover { background: var(--accent-light); color: #fff; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(217, 154, 59, 0.35); }
 
+.btn--stacked { flex-direction: column; gap: 2px; line-height: 1.2; }
+
+.btn__sub {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
 /* ===== Nav ===== */
 .nav {
   position: sticky;
