@@ -427,8 +427,8 @@ img { max-width: 100%; display: block; }
 
 /* ===== Verticals strip (home page) ===== */
 .marquee {
-  padding: 20px 24px 0;
-  margin-top: -259px;
+  padding: 20px 24px 24px;
+  margin-top: -283px;
   position: relative;
   z-index: 1;
 }
@@ -1059,8 +1059,8 @@ img { max-width: 100%; display: block; }
 @media (max-width: 760px) {
   .hero-stats { padding: 22px 22px; margin-top: 0; border-radius: 12px; }
   .marquee {
-    padding: 20px 16px;
-    margin: -56px 16px 0;
+    padding: 20px 16px 40px;
+    margin: -76px 16px 0;
     background: linear-gradient(165deg, rgba(13, 15, 26, 0.92), rgba(13, 15, 26, 0.78));
     border-radius: 22px;
     box-shadow: 0 20px 40px rgba(13, 15, 26, 0.18);
