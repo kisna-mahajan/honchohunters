@@ -428,7 +428,7 @@ img { max-width: 100%; display: block; }
 /* ===== Verticals strip (home page) ===== */
 .marquee {
   padding: 20px 24px 0;
-  margin-top: -229px;
+  margin-top: -259px;
   position: relative;
   z-index: 1;
 }
