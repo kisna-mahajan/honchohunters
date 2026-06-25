@@ -353,6 +353,12 @@ img { max-width: 100%; display: block; }
     linear-gradient(165deg, rgba(74, 48, 13, 0.55), rgba(74, 48, 13, 0.38) 55%, rgba(46, 28, 6, 0.62));
 }
 
+.hero--tint-amber-strong .hero__bg::after {
+  background:
+    radial-gradient(900px 520px at 88% -10%, var(--accent-glow), transparent 60%),
+    linear-gradient(165deg, rgba(64, 42, 11, 0.82), rgba(50, 32, 9, 0.74) 55%, rgba(30, 18, 4, 0.88));
+}
+
 .hero .container { position: relative; z-index: 1; }
 
 .hero__eyebrow {
