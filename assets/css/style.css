@@ -380,6 +380,8 @@ img { max-width: 100%; display: block; }
 
 .hero--home { padding-bottom: 300px; }
 
+.hero--curve { padding-bottom: 160px; }
+
 .hero__orb {
   position: absolute;
   border-radius: 50%;
@@ -520,7 +522,8 @@ img { max-width: 100%; display: block; }
 
 .divider--flip { transform: scaleX(-1); }
 
-.divider--home-curve {
+.divider--home-curve,
+.divider--page-curve {
   background: transparent;
   position: absolute;
   left: 0;
@@ -528,7 +531,8 @@ img { max-width: 100%; display: block; }
   bottom: 0;
   z-index: 1;
 }
-.divider--home-curve svg path { fill: var(--bg-light); }
+.divider--home-curve svg path,
+.divider--page-curve svg path { fill: var(--bg-light); }
 
 /* ===== Generic section ===== */
 .section { padding: 80px 0; }
@@ -625,6 +629,85 @@ img { max-width: 100%; display: block; }
   color: var(--accent);
   font-weight: 600;
   font-size: 0.92rem;
+}
+
+/* ===== FAQ accordion ===== */
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 4px 28px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] summary::after { transform: rotate(45deg); }
+
+.faq-item p {
+  color: var(--text-muted-dark);
+  font-size: 0.98rem;
+  padding-bottom: 22px;
+  max-width: 760px;
+}
+
+.section--dark .faq-item {
+  background: rgba(255,255,255,0.04);
+  border-color: var(--border-dark);
+}
+
+.section--dark .faq-item p { color: var(--text-muted-light); }
+
+/* ===== Related practices ===== */
+.related-practices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.related-practices a {
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.related-practices a:hover {
+  border-color: var(--accent);
+  color: var(--accent-deep);
 }
 
 /* ===== Tag cloud (compact label lists — industries, segments, opportunities) ===== */
