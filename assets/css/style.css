@@ -354,13 +354,13 @@ img { max-width: 100%; display: block; }
 }
 
 .hero--tint-amber-strong .hero__bg {
-  filter: saturate(0.65);
+  filter: saturate(0.45);
 }
 
 .hero--tint-amber-strong .hero__bg::after {
   background:
     radial-gradient(900px 520px at 88% -10%, var(--accent-glow), transparent 60%),
-    linear-gradient(165deg, rgba(22, 18, 14, 0.92), rgba(18, 15, 11, 0.86) 55%, rgba(10, 8, 6, 0.95));
+    linear-gradient(165deg, rgba(20, 21, 24, 0.62), rgba(18, 19, 22, 0.5) 55%, rgba(10, 11, 13, 0.7));
 }
 
 .hero--tint-amber-deep .hero__bg::after {
