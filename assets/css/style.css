@@ -360,7 +360,7 @@ img { max-width: 100%; display: block; }
 .hero--tint-amber-strong .hero__bg::after {
   background:
     radial-gradient(900px 520px at 88% -10%, var(--accent-glow), transparent 60%),
-    linear-gradient(165deg, rgba(20, 21, 24, 0.62), rgba(18, 19, 22, 0.5) 55%, rgba(10, 11, 13, 0.7));
+    linear-gradient(165deg, rgba(20, 21, 24, 0.74), rgba(18, 19, 22, 0.62) 55%, rgba(10, 11, 13, 0.82));
 }
 
 .hero--tint-amber-deep .hero__bg::after {
