@@ -98,7 +98,7 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
 ## Pending Work
 1. Owner to decide: trim the long hero paragraphs on the practice pages (Defence runs to about 9 lines on a phone) the way the Channel Partner heroes were trimmed. This is a wording change, so get approval first.
 2. Owner to decide: whether to show the Mobile / WhatsApp number in the footer on every page. It is currently in no footer, only in the Channel Partner Contact sections.
-3. Submit the updated sitemap in Google Search Console, then monitor indexing of all three Channel Partner URLs.
+3. Submit the updated sitemap in Google Search Console and Bing Webmaster Tools (Bing: also paste all 12 URLs into URL Submission), then monitor indexing, especially the three Channel Partner URLs. All 12 sitemap `lastmod` dates were set to 2026-10-20 after the redesign; bump a page's date whenever its content changes.
 4. Owner to decide (each adds words, so it was left out of the redesign):
    - a "skip to content" link
    - the email address shown beside "Share Your Mandate" buttons
