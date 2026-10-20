@@ -58,7 +58,14 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
   - Defence "Built for Defence Leadership" changed from 5 narrow cards in one row to 3 + 2.
   - Footers are identical on all 12 pages (the phone was removed from the Channel Partners footers; it stays in their Contact sections).
   - Footer column headings are `<h2>` (were `<h4>`, which skipped heading levels).
-  - No wording changed in the review. Same-colour neighbours are left alone (Steel/Cement have two white sections in a row; the CP pages have light/light pairs).
+  - The home hero is left-aligned like every other page. On desktop its industry pills and stats card share the page container's edges (1132px wide); on phones the pills stay centred in their box.
+  - Phone polish (at 760px and below):
+    - stats show 2 × 2, with numbers sized to 5.2vw and kept on one line
+    - the home stats card is inset 16px, matching the pill box
+    - the home hero's empty gap was cut (padding-bottom 160px)
+    - hero buttons go full width with centred text (560px and below)
+  - No wording changed in the review.
+- Owner preference: **phones must never overflow.** If text doesn't fit, shrink it rather than let it wrap badly or spill. Phone checks run at 360, 390 and 430px. Same-colour neighbours are left alone (Steel/Cement have two white sections in a row; the CP pages have light/light pairs).
 
 ## Known Issues
 - formsubmit.co may ask the inbox owner to confirm the first submission coming from each new form page. Send a test application from each of `/channel-partners-01` and `/channel-partners-02` after deploying.

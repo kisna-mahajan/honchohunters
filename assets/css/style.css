@@ -98,6 +98,7 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   font-size: 0.95rem;
   border: 1px solid transparent;
+  text-align: center;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
@@ -430,7 +431,10 @@ img { max-width: 100%; display: block; }
 .hero--page .hero__title,
 .hero--page .hero__subtitle { margin-left: 0; }
 
-.hero--home { padding-bottom: 300px; }
+.hero--home { padding-bottom: 300px; text-align: left; }
+.hero--home .hero__title,
+.hero--home .hero__subtitle { margin-left: 0; }
+.hero--home .hero__actions { justify-content: flex-start; }
 
 .hero--curve { padding-bottom: 160px; }
 
@@ -471,7 +475,7 @@ img { max-width: 100%; display: block; }
 .hero-stats {
   position: relative;
   z-index: 2;
-  max-width: 1000px;
+  max-width: 1132px;
   margin: 0 auto 0;
   background: var(--bg-card);
   border-radius: 16px;
@@ -490,9 +494,9 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 14px 16px;
-  max-width: 1080px;
+  max-width: 1132px;
   margin: 0 auto;
 }
 .marquee__track span {
@@ -1310,7 +1314,11 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 760px) {
-  .hero-stats { padding: 22px 22px; margin-top: 0; border-radius: 12px; }
+  .hero-stats { padding: 22px 22px; margin: 0 16px; border-radius: 12px; }
+  .hero--home { padding-bottom: 160px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+  .stat__number { font-size: clamp(1.1rem, 5.2vw, 1.8rem); white-space: nowrap; }
+  .stat__label { font-size: 0.8rem; }
   .marquee {
     padding: 20px 16px 40px;
     margin: -76px 16px 0;
@@ -1318,7 +1326,7 @@ img { max-width: 100%; display: block; }
     border-radius: 22px;
     box-shadow: 0 20px 40px rgba(13, 15, 26, 0.18);
   }
-  .marquee__track { gap: 10px 10px; }
+  .marquee__track { gap: 10px 10px; justify-content: center; }
   .marquee__track span { font-size: 0.72rem; padding: 9px 16px; background: rgba(245, 243, 238, 0.08); }
   .grid--cols-3 { grid-template-columns: repeat(2, 1fr); }
   [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; gap: 32px !important; }
@@ -1355,6 +1363,7 @@ img { max-width: 100%; display: block; }
 /* Must come after the 760px block, which sets .grid--cols-3 to two columns */
 @media (max-width: 560px) {
   .grid--cols-2, .grid--cols-3, .grid--cols-4, .grid--cols-5 { grid-template-columns: 1fr; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
 }
 
 /* ===== Short last rows stretch to the full grid width =====
