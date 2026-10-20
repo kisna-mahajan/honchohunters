@@ -1517,10 +1517,11 @@ img { max-width: 100%; display: block; }
   .tag-cloud { gap: 8px; }
   .tag-chip { font-size: 0.78rem; padding: 8px 12px; gap: 6px; border-radius: 8px; }
   .tag-chip::before { width: 5px; height: 5px; }
-  .marquee { padding: 18px 0 30px; }
-  .marquee__track { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
-  .marquee__track::-webkit-scrollbar { display: none; }
-  .marquee__track span { flex: none; font-size: 0.68rem; padding: 8px 14px; }
+  /* Home sectors: all six visible as an even 2 x 3 grid of tiles */
+  .marquee { padding: 14px 10px 24px; }
+  .marquee__track { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 8px; }
+  .marquee__track span { justify-content: center; text-align: center; white-space: normal; font-size: clamp(0.56rem, 2.58vw, 0.62rem); letter-spacing: 0.01em; line-height: 1.35; padding: 8px 6px; min-height: 46px; border-radius: 12px; }
+  .marquee__track span::before { display: none; }
   .list--split { columns: 2; column-gap: 16px; }
   .list--split li { break-inside: avoid; }
 
