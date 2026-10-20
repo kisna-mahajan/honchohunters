@@ -93,14 +93,13 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
   Light/white backgrounds are re-alternated so every change curves. Not done, because they add words: a skip link, the email address beside mandate buttons, a mandate form, a second mandate button on About.
 
 ## Known Issues
-- formsubmit.co may ask the inbox owner to confirm the first submission coming from each new form page. Send a test application from each of `/channel-partners-01` and `/channel-partners-02` after deploying.
+- None open. On 2026-10-20 the owner confirmed both Channel Partner forms (`/channel-partners-01`, `/channel-partners-02`) work on the live site: test emails arrived and the instant thank-you shows. If a form is ever added on a new page, formsubmit.co may ask the inbox owner to confirm its first submission.
 
 ## Pending Work
-1. Test-submit both new Channel Partner forms on the live site and confirm the emails arrive.
-2. Owner to decide: trim the long hero paragraphs on the practice pages (Defence runs to about 9 lines on a phone) the way the Channel Partner heroes were trimmed. This is a wording change, so get approval first.
-3. Owner to decide: whether to show the Mobile / WhatsApp number in the footer on every page. It is currently in no footer, only in the Channel Partner Contact sections.
-4. Submit the updated sitemap in Google Search Console, then monitor indexing of all three Channel Partner URLs.
-5. Owner to decide (each adds words, so it was left out of the redesign):
+1. Owner to decide: trim the long hero paragraphs on the practice pages (Defence runs to about 9 lines on a phone) the way the Channel Partner heroes were trimmed. This is a wording change, so get approval first.
+2. Owner to decide: whether to show the Mobile / WhatsApp number in the footer on every page. It is currently in no footer, only in the Channel Partner Contact sections.
+3. Submit the updated sitemap in Google Search Console, then monitor indexing of all three Channel Partner URLs.
+4. Owner to decide (each adds words, so it was left out of the redesign):
    - a "skip to content" link
    - the email address shown beside "Share Your Mandate" buttons
    - a short mandate form for organisations instead of the mailto
