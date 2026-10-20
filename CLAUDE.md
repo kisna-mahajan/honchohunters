@@ -81,7 +81,7 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
     - hero buttons go full width with centred text (560px and below)
   - No wording changed in the review.
 - Owner preference: **phones must never overflow.** If text doesn't fit, shrink it rather than let it wrap badly or spill. Phone checks run at 360, 390 and 430px. Same-colour neighbours are left alone (Steel/Cement have two white sections in a row; the CP pages have light/light pairs).
-- 2026-10-20 (branch `phone-redesign`, not live until approved): full storyboard redesign from three UX reviews. Same words; section order changed:
+- 2026-10-20 (live; the owner approved it after reviewing desktop and phone): full storyboard redesign from three independent UX reviews (journeys, visual system, interaction/accessibility). The reports are kept locally in `.claude/ux-reviews/`, which is git-ignored. Same words: a word-count snapshot of all 12 pages was identical before and after. Section order changed:
   - Home ends on "For Senior Professionals".
   - Practice pages run proof, then FAQ, then the two asks; "Explore Other Practices" closes the organisations section, and "Share Your Mandate" is primary.
   - CP option pages put the FAQ before the form.
@@ -97,6 +97,11 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
 2. Owner to decide: trim the long hero paragraphs on the practice pages (Defence runs to about 9 lines on a phone) the way the Channel Partner heroes were trimmed. This is a wording change, so get approval first.
 3. Owner to decide: whether to show the Mobile / WhatsApp number in the footer on every page. It is currently in no footer, only in the Channel Partner Contact sections.
 4. Submit the updated sitemap in Google Search Console, then monitor indexing of all three Channel Partner URLs.
+5. Owner to decide (each adds words, so it was left out of the redesign):
+   - a "skip to content" link
+   - the email address shown beside "Share Your Mandate" buttons
+   - a short mandate form for organisations instead of the mailto
+   - a second "Share Your Mandate" on About
 
 ## Decisions Log
 - **Option pages are root-level `.html` files, not folders.** The SEO brief's canonical URLs have no trailing slash (`/channel-partners-01`). GitHub Pages serves `channel-partners-01.html` at that exact URL with a 200. A `channel-partners-01/index.html` folder would 301-redirect to the trailing-slash URL, and canonicals should never point at a redirect. Keep canonical, sitemap and internal links all on the no-slash form.
