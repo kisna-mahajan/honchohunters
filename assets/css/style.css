@@ -1416,3 +1416,162 @@ img { max-width: 100%; display: block; }
   .hero__eyebrow, .page-tag, .hero__title, .hero__subtitle, .hero__actions { animation: none !important; }
   .hero__orb { animation: none !important; }
 }
+
+/* ===== Phone storyboard layer (760px and below) =====
+   Desktop is untouched. On phones the page should read as one connected story:
+   a tighter rhythm, swipeable card decks instead of long stacks, compact chips,
+   left-aligned "chapters" numbered in order, a reading-progress line and a sticky
+   action bar. Wording is never changed. */
+.deck-dots,
+.read-progress,
+.phone-cta { display: none; }
+
+@media (max-width: 760px) {
+  /* Rhythm: less empty space, smaller headings */
+  .section { padding: 52px 0; }
+  .cta-banner { padding: 60px 0; }
+  .section__header { margin-bottom: 26px; }
+  .section-title { font-size: 1.55rem; margin-bottom: 12px; }
+  .section-body { font-size: 0.97rem; }
+  .card { padding: 24px 20px; }
+  .form-card { padding: 28px 20px; }
+  .hero--page { padding: 56px 24px 48px; }
+  .hero--curve { padding-bottom: 96px; }
+  .hero__title { font-size: 1.85rem; }
+  .hero__subtitle { font-size: 1rem; }
+  .divider { height: 48px; }
+
+  /* Chapters: left-aligned, so the eye follows one line down the page */
+  .section__header.center { text-align: left; }
+  .section__header.center .section-label { justify-content: flex-start; }
+  .section [style*="text-align:center"] { text-align: left !important; }
+  .section .tag-cloud { justify-content: flex-start; }
+  body { counter-reset: chapter; }
+  .section .section-label::before {
+    counter-increment: chapter;
+    content: counter(chapter, decimal-leading-zero);
+    width: auto;
+    height: auto;
+    background: none;
+    padding: 2px 7px;
+    border: 1px solid rgba(217, 154, 59, 0.45);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* Card decks: 3+ cards or steps become one swipeable row */
+  .grid:has(> :nth-child(3)),
+  .process__steps {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: none !important;
+    grid-auto-columns: min(82%, 320px);
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    max-width: none !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    padding: 6px 24px 14px;
+    scroll-padding-left: 24px;
+    scrollbar-width: none;
+  }
+  .grid:has(> :nth-child(3))::-webkit-scrollbar,
+  .process__steps::-webkit-scrollbar { display: none; }
+  .grid:has(> :nth-child(3)) > *,
+  .process__steps > * { scroll-snap-align: start; grid-column: auto !important; }
+  /* Long numbered steps become a swipeable deck of step cards */
+  .process-steps--detailed {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(84%, 330px);
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    margin: 0 -24px;
+    padding: 6px 24px 14px;
+    scroll-padding-left: 24px;
+    scrollbar-width: none;
+  }
+  .process-steps--detailed::-webkit-scrollbar { display: none; }
+  .process-steps--detailed li {
+    scroll-snap-align: start;
+    padding: 58px 20px 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+  }
+  .process-steps--detailed li::before { top: 18px; left: 20px; }
+  .process-steps--detailed li::after { display: none; }
+  .section--card .process-steps--detailed li { background: var(--bg-light); }
+  .deck-dots { display: flex; justify-content: center; gap: 6px; margin: 4px 0 0; }
+  .deck-dots span { width: 6px; height: 6px; border-radius: 999px; background: rgba(24, 24, 24, 0.18); transition: width 0.25s ease, background 0.25s ease; }
+  .deck-dots span.is-active { width: 18px; background: var(--accent); }
+  .section--dark .deck-dots span { background: rgba(245, 243, 238, 0.25); }
+  .section--dark .deck-dots span.is-active { background: var(--accent-light); }
+
+  /* Compact chips and short lists */
+  .tag-cloud { gap: 8px; }
+  .tag-chip { font-size: 0.78rem; padding: 8px 12px; gap: 6px; border-radius: 8px; }
+  .tag-chip::before { width: 5px; height: 5px; }
+  .marquee { padding: 18px 0 30px; }
+  .marquee__track { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .marquee__track::-webkit-scrollbar { display: none; }
+  .marquee__track span { flex: none; font-size: 0.68rem; padding: 8px 14px; }
+  .list--split { columns: 2; column-gap: 16px; }
+  .list--split li { break-inside: avoid; }
+
+  /* Footer in two columns */
+  .footer { padding-top: 40px; }
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: 24px 20px; padding-bottom: 28px; }
+  .footer__brand, .footer__col:last-child { grid-column: 1 / -1; }
+  .footer__col li { margin-bottom: 8px; font-size: 0.86rem; }
+
+  /* Reading progress under the nav */
+  .read-progress { display: block; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; pointer-events: none; }
+  .read-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent-2), var(--accent), var(--accent-light)); }
+
+  /* Sticky action bar */
+  .phone-cta {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(13, 15, 26, 0.9);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border-top: 1px solid var(--border-dark);
+    transform: translateY(110%);
+    transition: transform 0.3s ease;
+  }
+  .phone-cta.is-visible { transform: translateY(0); }
+  .phone-cta .btn { flex: 1; justify-content: center; padding: 12px 14px; font-size: 0.86rem; line-height: 1.25; }
+  .phone-cta .btn__sub { display: none; }
+}
+
+@supports (mask-image: none) or (-webkit-mask-image: none) {
+  @media (max-width: 760px) {
+    /* Same seamless S-curves, scaled to a 48px band on phones */
+    .divider + *,
+    .hero--curve + * {
+      margin-top: -48px;
+      -webkit-mask-size: 100% 48px, 100% calc(100% - 30px);
+      mask-size: 100% 48px, 100% calc(100% - 30px);
+      -webkit-mask-position: top, 0 30px;
+      mask-position: top, 0 30px;
+    }
+    .divider + .section,
+    .hero--curve + .section { padding-top: 100px; }
+    .divider + .cta-banner { padding-top: 108px; }
+    .section:has(+ .divider) { padding-bottom: 100px; }
+    .cta-banner:has(+ .divider) { padding-bottom: 108px; }
+    .hero--page:not(.hero--curve):has(+ .divider) { padding-bottom: 96px; }
+  }
+}

@@ -32,6 +32,12 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
 - All asset and page links are root-absolute (`/assets/...`, `/about/`), so pages work at any depth.
 - Page section rhythm: `hero` (with `divider--page-curve`) → alternating `section--light` / `section--card` / `section--dark` with `divider--X-to-Y` S-curves between them → `footer` (some pages have a `cta-banner` before the footer).
 - **How the S-curves render (seamless curves):** in browsers with CSS mask support (all current ones), every `.divider` span and hero page-curve is hidden. The element right after it (`.divider + *`, `.hero--curve + *`) is pulled up 90px and masked to the S-curve, so both neighbours show their real gradient backgrounds right up to the curve. Extra padding (`170px` instead of `80px`, or `180px` on `cta-banner`) keeps content where it was. The `divider--X-to-Y` colour variants only matter as the no-mask fallback. To add a curve, put a divider span between two sections; any variant name works, but use the matching one.
+- **Phone storyboard layer** (end of `style.css` + end of `main.js`, 760px and below only; desktop unchanged):
+  - **Rhythm:** tighter sections, and the S-curves scale to a 48px band (the mask overrides sit in a nested `@supports`/`@media` block).
+  - **Chapters:** section headers are left-aligned and numbered 01, 02… with a CSS counter on `.section .section-label`.
+  - **Swipe decks:** `.grid` with 3+ children, `.process__steps` and `.process-steps--detailed` become horizontal scroll-snap decks with dots added by JS.
+  - **Compact layouts:** chips are smaller, the home industry pills are one swipeable row, lists whose items are all 26 characters or fewer split into two columns (JS adds `.list--split`), and the footer has two columns.
+  - **Navigation aids:** a reading-progress line sits under the nav, and a sticky bottom action bar clones the hero buttons (or the nav CTA). The bar is skipped on /engage/ and hides while a form or the footer is on screen.
 - Each page carries its own SEO head (title, description, canonical, OG/Twitter, geo meta) and JSON-LD. The Organization entity lives on the home page as `https://honchohunters.com/#organization`; other pages reference that `@id`.
 - Channel Partner pages: the landing page has no form. Each option page has its own form, with a distinct `_subject`, a hidden `partnership_model` field and its own `_next` URL.
 
