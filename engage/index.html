@@ -27,6 +27,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <script>
+    // Back from a form submit: hold the first paint until the thank-you message is in place
+    if (/[?&]submitted=true/.test(location.search)) {
+      document.documentElement.classList.add('form-submitted');
+      setTimeout(function () { document.documentElement.classList.remove('form-submitted'); }, 2000);
+    }
+  </script>
 </head>
 <body>
 
@@ -250,7 +257,20 @@
         var note = document.getElementById('engage-org-note');
         if (card) card.style.display = 'none';
         if (note) note.style.display = 'none';
-        if (thanks) thanks.style.display = 'block';
+        if (thanks) {
+          thanks.style.display = 'block';
+          var place = function () {
+            var r = thanks.getBoundingClientRect();
+            var gap = Math.max(80, (window.innerHeight - r.height) / 2);
+            window.scrollTo({ top: Math.max(0, window.scrollY + r.top - gap), behavior: 'instant' });
+          };
+          place();
+          document.documentElement.classList.remove('form-submitted');
+          window.addEventListener('load', function () {
+            var r = thanks.getBoundingClientRect();
+            if (r.top < 70 || r.bottom > window.innerHeight) place();
+          });
+        }
         return;
       }
 

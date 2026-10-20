@@ -6,6 +6,9 @@ Marketing website for **Honcho Hunters** (honchohunters.com), a confidential exe
 - Hand-written static HTML + one shared stylesheet + one small JS file. No build step, no framework, no package.json.
 - Hosted on **GitHub Pages** from `main` (repo root), custom domain via `CNAME`, DNS on Cloudflare (see README.md).
 - Forms post to **formsubmit.co** → `confidential@honchohunters.com`, then redirect back with `?submitted=true`; an inline script on the page swaps the form for a thank-you card.
+  - **No jump on return:** a tiny `<head>` script adds `html.form-submitted`, which hides the page until the end-of-body script has placed the thank-you card mid-screen with an instant scroll. A 2s safety timeout removes the class in any case.
+  - **While sending:** the submit button is disabled with `aria-busy` and shows a spinner (main.js + CSS).
+  - **Testing:** check this on `/channel-partners-01`, `/channel-partners-02` and `/engage/` by loading `?submitted=true`. Never submit the real forms; they send real emails.
 - Fonts: Google Fonts (Inter, Playfair Display).
 
 ## Project Structure

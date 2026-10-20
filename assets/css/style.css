@@ -1747,3 +1747,35 @@ body { counter-reset: chapter; }
 }
 
 .deck-dots[hidden] { display: none !important; }
+
+/* ===== Form submit: instant feedback =====
+   Sending: the button shows a spinner as soon as it is pressed.
+   Back from the form service (?submitted=true): the page stays hidden for the moment it
+   takes to put the thank-you message in the middle of the screen, so there is no jump. */
+html.form-submitted { scroll-behavior: auto; }
+html.form-submitted body { visibility: hidden; }
+html.form-submitted .form-card:not(.is-success),
+html.form-submitted #partner-org-note,
+html.form-submitted #engage-org-note { display: none !important; }
+html.form-submitted .is-success { display: block !important; }
+
+button[type="submit"][aria-busy="true"] { cursor: progress; opacity: 0.85; }
+button[type="submit"][aria-busy="true"]::after {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 0.7s linear infinite;
+}
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  button[type="submit"][aria-busy="true"]::after { animation-duration: 1.6s; }
+}
+
+/* The thank-you card takes focus so screen readers announce it; it is not interactive, so no ring */
+.form-card.is-success:focus,
+.form-card.is-success:focus-visible { outline: none; }
