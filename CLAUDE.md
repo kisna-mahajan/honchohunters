@@ -31,13 +31,22 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
 - Every page repeats the full nav + footer markup (no includes). A nav/footer change must be made in **every** HTML file.
 - All asset and page links are root-absolute (`/assets/...`, `/about/`), so pages work at any depth.
 - Page section rhythm: `hero` (with `divider--page-curve`) → alternating `section--light` / `section--card` / `section--dark` with `divider--X-to-Y` S-curves between them → `footer` (some pages have a `cta-banner` before the footer).
-- **How the S-curves render (seamless curves):** in browsers with CSS mask support (all current ones), every `.divider` span and hero page-curve is hidden. The element right after it (`.divider + *`, `.hero--curve + *`) is pulled up 90px and masked to the S-curve, so both neighbours show their real gradient backgrounds right up to the curve. Extra padding (`170px` instead of `80px`, or `180px` on `cta-banner`) keeps content where it was. The `divider--X-to-Y` colour variants only matter as the no-mask fallback. To add a curve, put a divider span between two sections; any variant name works, but use the matching one.
-- **Phone storyboard layer** (end of `style.css` + end of `main.js`, 760px and below only; desktop unchanged):
-  - **Rhythm:** tighter sections, and the S-curves scale to a 48px band (the mask overrides sit in a nested `@supports`/`@media` block).
-  - **Chapters:** section headers are left-aligned and numbered 01, 02… with a CSS counter on `.section .section-label`.
-  - **Swipe decks:** `.grid` with 3+ children, `.process__steps` and `.process-steps--detailed` become horizontal scroll-snap decks with dots added by JS.
-  - **Compact layouts:** chips are smaller, the home industry pills are one swipeable row, lists whose items are all 26 characters or fewer split into two columns (JS adds `.list--split`), and the footer has two columns.
-  - **Navigation aids:** a reading-progress line sits under the nav, and a sticky bottom action bar clones the hero buttons (or the nav CTA). The bar is skipped on /engage/ and hides while a form or the footer is on screen.
+- **Design tokens** (`:root`): `--accent-ink` #9a5f1c is the gold for TEXT on light or white backgrounds (AA); `--accent` stays for fills, rules and icons. `--section-y` and `--curve-h` set section padding and S-curve height: 64/64 on desktop, 44/40 at 760px and below.
+- **How the S-curves render (seamless curves):** in browsers with CSS mask support (all current ones), every `.divider` span and hero page-curve is hidden. The element right after it (`.divider + *`, `.hero--curve + *`) is pulled up `--curve-h` and masked to the S-curve, so both neighbours show their real gradient backgrounds right up to the curve. A faint gold thread (`::after`) traces each curve. Padding of `--section-y + --curve-h` keeps content clear of the curve. The `divider--X-to-Y` colour variants only matter as the no-mask fallback. To add a curve, put a divider span between two sections; any variant name works, but use the matching one.
+- **Storyboard redesign layer** (end of `style.css` and most of `main.js`). It came from three independent UX reviews (journeys, visual system, interaction/accessibility) and changes no wording.
+  - **All widths:**
+    - Section labels are numbered chapters (a CSS counter, silent to screen readers) with left-aligned headers. The FAQ, `cta-banner`s and the home `.section--statement` stay centred.
+    - Buttons on gold use dark text, and gold text uses `--accent-ink`.
+    - `:focus-visible` rings; only links lift on hover.
+    - Line length is capped at 68ch.
+    - `.hero__tagline` is the one tagline style.
+  - **1024px and up:** JS adds `.split` to a section container whose header is followed by a chip cloud, checklist or numbered steps (and no card grid, FAQ or form). The header sits sticky on the left, the content on the right.
+  - **760px and below:**
+    - **Card sets are chosen by size in JS:** `.deck` (swipe, tappable dots) for mid-size cards; `.tiles` (2 columns) when cards are under 170px and there are 4 or more; a plain stack when a card is taller than 60% of the screen or the grid has `data-stack`.
+    - **Tabs:** grids whose cards all have an `.option-card__label` (CP options, Partnership Levels) become tabs. Tab names reuse those labels.
+    - **Chrome:** compact nav with a 44px hamburger that becomes an X; the menu closes on Escape, an outside tap or a link tap; the Practices links are always expanded in the menu; the footer uses pill links.
+    - **Readability:** inputs and body text at 16px; the home sectors are a 2 x 3 grid of real links.
+    - **Sticky action bar:** hero buttons, plus the mandate button on practice pages or the nav CTA on Home. It is hidden and `inert` on the hero, over forms, over the footer, and over an in-page target such as `#practices`.
 - Each page carries its own SEO head (title, description, canonical, OG/Twitter, geo meta) and JSON-LD. The Organization entity lives on the home page as `https://honchohunters.com/#organization`; other pages reference that `@id`.
 - Channel Partner pages: the landing page has no form. Each option page has its own form, with a distinct `_subject`, a hidden `partnership_model` field and its own `_next` URL.
 
@@ -72,6 +81,13 @@ llms.txt                      Plain-language site summary for AI crawlers (keep 
     - hero buttons go full width with centred text (560px and below)
   - No wording changed in the review.
 - Owner preference: **phones must never overflow.** If text doesn't fit, shrink it rather than let it wrap badly or spill. Phone checks run at 360, 390 and 430px. Same-colour neighbours are left alone (Steel/Cement have two white sections in a row; the CP pages have light/light pairs).
+- 2026-10-20 (branch `phone-redesign`, not live until approved): full storyboard redesign from three UX reviews. Same words; section order changed:
+  - Home ends on "For Senior Professionals".
+  - Practice pages run proof, then FAQ, then the two asks; "Explore Other Practices" closes the organisations section, and "Share Your Mandate" is primary.
+  - CP option pages put the FAQ before the form.
+  - Engage puts the organisation note above the form.
+
+  Light/white backgrounds are re-alternated so every change curves. Not done, because they add words: a skip link, the email address beside mandate buttons, a mandate form, a second mandate button on About.
 
 ## Known Issues
 - formsubmit.co may ask the inbox owner to confirm the first submission coming from each new form page. Send a test application from each of `/channel-partners-01` and `/channel-partners-02` after deploying.

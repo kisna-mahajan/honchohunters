@@ -57,6 +57,8 @@
     </div>
   </nav>
 
+  <main id="main">
+
   <!-- HERO -->
   <section class="hero hero--page">
     <div class="container">
@@ -73,6 +75,14 @@
   <!-- FORM -->
   <section class="section section--light">
     <div class="container" style="max-width:760px;">
+      <div class="org-note" id="engage-org-note">
+        <p class="card__title" style="font-size:1rem;margin-bottom:8px;">Representing an Organisation?</p>
+        <p class="card__body">
+          This form is reserved for senior professionals. If you are an organisation with a leadership mandate to share, please email us directly at
+          <a href="mailto:confidential@honchohunters.com">confidential@honchohunters.com</a>.
+        </p>
+      </div>
+
       <div class="form-card" id="engage-form-card">
         <div class="section__header center">
           <p class="section-label">Share Your Profile</p>
@@ -88,33 +98,33 @@
           <div class="form-grid-2">
             <div class="form-row">
               <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="name" required autocomplete="name" />
             </div>
             <div class="form-row">
               <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="email" required autocomplete="email" />
             </div>
           </div>
 
           <div class="form-grid-2">
             <div class="form-row">
               <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required />
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" />
             </div>
             <div class="form-row">
               <label for="linkedin">LinkedIn Profile (optional)</label>
-              <input type="url" id="linkedin" name="linkedin" />
+              <input type="url" id="linkedin" name="linkedin" autocomplete="url" />
             </div>
           </div>
 
           <div class="form-grid-2">
             <div class="form-row">
               <label for="organisation">Current Organisation *</label>
-              <input type="text" id="organisation" name="organisation" required />
+              <input type="text" id="organisation" name="organisation" required autocomplete="organization" />
             </div>
             <div class="form-row">
               <label for="designation">Current Designation *</label>
-              <input type="text" id="designation" name="designation" required />
+              <input type="text" id="designation" name="designation" required autocomplete="organization-title" />
             </div>
           </div>
 
@@ -151,18 +161,11 @@
         </form>
       </div>
 
-      <div class="form-card is-success" id="engage-form-thanks" style="display:none;text-align:center;">
+      <div class="form-card is-success" id="engage-form-thanks" role="status" tabindex="-1" style="display:none;text-align:center;">
         <p class="card__title" style="font-size:1.2rem;margin-bottom:8px;">Thank You</p>
         <p class="card__body">Your details have been received - we will reach out for relevant opportunities.</p>
       </div>
 
-      <div class="org-note" id="engage-org-note">
-        <p class="card__title" style="font-size:1rem;margin-bottom:8px;">Representing an Organisation?</p>
-        <p class="card__body">
-          This form is reserved for senior professionals. If you are an organisation with a leadership mandate to share, please email us directly at
-          <a href="mailto:confidential@honchohunters.com">confidential@honchohunters.com</a>.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -176,25 +179,27 @@
         <h2 class="section-title">Common Questions</h2>
       </div>
       <div class="faq-list">
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Will my profile be published or shared publicly?</summary>
           <p>No. Profiles shared through this page are never published or listed publicly. They remain private and are shared only for relevant, mandate-specific opportunities.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Who should use this form?</summary>
           <p>This form is exclusively for senior professionals exploring CXO opportunities, business leadership roles, advisory positions, board assignments and strategic engagements across Defence, GCC, Healthcare, Consumer Electronics, Steel and Cement.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>What happens after I submit my profile?</summary>
           <p>Your details are received confidentially and reviewed against current and upcoming leadership mandates. Honcho Hunters reaches out directly when a relevant opportunity arises.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>I represent an organisation with a leadership mandate. Can I use this form?</summary>
           <p>This form is reserved for senior professionals. Organisations with a leadership mandate to share should email Honcho Hunters directly at confidential@honchohunters.com.</p>
         </details>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
