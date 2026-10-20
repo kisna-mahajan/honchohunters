@@ -1696,14 +1696,15 @@ body { counter-reset: chapter; }
   .tag-chip::before { width: 5px; height: 5px; }
   .list--split { column-gap: 16px; }
 
-  /* Footer: compact, with 44px link targets */
+  /* Footer: plain links in two columns, each row a 44px tap target */
   .footer { padding-top: 36px; }
   .footer__inner { grid-template-columns: 1fr; gap: 22px; padding-bottom: 24px; }
   .footer__brand .nav__logo-img { height: 30px; }
   .footer__brand p { font-size: 0.82rem; max-width: none; }
-  .footer__col ul { display: flex; flex-wrap: wrap; gap: 8px; }
-  .footer__col li { margin: 0; font-size: 0.86rem; }
-  .footer__col a { display: inline-block; padding: 10px 12px; border: 1px solid var(--border-dark); border-radius: 999px; }
+  .footer__col ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
+  .footer__col:last-child ul { grid-template-columns: 1fr; }
+  .footer__col li { margin: 0; font-size: 0.9rem; line-height: 1.35; }
+  .footer__col a { display: block; padding: 12.5px 0; }
   .footer__col h2 { margin-bottom: 10px; }
   .footer__bottom { font-size: 0.75rem; }
 
